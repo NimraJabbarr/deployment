@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School CRM</title>
+</head>
+<body>
+    <h1>Students</h1>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }} - {{ student.age }} - {{ student.email }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Teachers</h1>
+    <ul>
+        {% for teacher in teachers %}
+            <li>{{ teacher.name }} - {{ teacher.subject }} - {{ teacher.email }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
