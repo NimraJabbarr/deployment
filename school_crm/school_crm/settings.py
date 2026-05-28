@@ -6,8 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=8u!*0^cmpt5z+25)ge50c55%h(-h=*-2_sg$_eg7av%!=w+vu'
 
 DEBUG = False   # ✅ Deployment ke liye False
+ALLOWED_HOSTS = ['web-production-e2158.up.railway.app', '127.0.0.1', 'localhost']
 
-ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-e2158.up.railway.app']
 
 # Dev server runs on HTTP only; ensure HTTPS requests aren't expected here.
 SECURE_SSL_REDIRECT = False
