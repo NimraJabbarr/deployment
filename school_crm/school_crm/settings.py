@@ -1,20 +1,19 @@
-"""
-Django settings for school_crm project.
-"""
-
 from pathlib import Path
+import os   # ✅ ye line add ki gayi
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-=8u!*0^cmpt5z+25)ge50c55%h(-h=*-2_sg$_eg7av%!=w+vu'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False   # ✅ Deployment ke liye False
 
-ALLOWED_HOSTS = ['esha.pythonanywhere.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost']
 
-# Application definition
+# Dev server runs on HTTP only; ensure HTTPS requests aren't expected here.
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,22 +53,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'school_crm.wsgi.application'
 
-# ✅ Neon PostgreSQL Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',  # Neon database name
-        'USER': 'neondb_owner',  # Neon role/username
-        'PASSWORD': 'npg_AVFrTDu4bei1',  # Neon password
-        'HOST': 'ep-green-dust-apbpgxh2-pooler.c-7.us-east-1.aws.neon.tech',  # Neon host
+        'NAME': 'neondb',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'npg_AVFrTDu4bei1',
+        'HOST': 'ep-green-dust-apbpgxh2-pooler.c-7.us-east-1.aws.neon.tech',
         'PORT': '5432',
         'OPTIONS': {
-            'sslmode': 'require',  # Neon requires SSL
+            'sslmode': 'require',
         }
     }
 }
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -77,14 +74,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# ✅ Static files
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ✅ ab error solve hoga
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
