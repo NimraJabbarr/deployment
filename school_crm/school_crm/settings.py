@@ -1,16 +1,24 @@
 from pathlib import Path
-import os   # ✅ ye line add ki gayi
+import os
+import dj_database_url   # ✅ agar Neon DB use kar rahi ho
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-=8u!*0^cmpt5z+25)ge50c55%h(-h=*-2_sg$_eg7av%!=w+vu'
 
 DEBUG = False   # ✅ Deployment ke liye False
-ALLOWED_HOSTS = ['web-production-e2158.up.railway.app', '127.0.0.1', 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-e2158.up.railway.app']
+ALLOWED_HOSTS = [
+    'web-production-e2158.up.railway.app',
+    '127.0.0.1',
+    'localhost'
+]
 
-# Dev server runs on HTTP only; ensure HTTPS requests aren't expected here.
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-e2158.up.railway.app'
+]
+
+# ✅ Dev server runs on HTTP only; ensure HTTPS requests aren't expected here.
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
@@ -28,6 +36,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ static files fix
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -35,6 +44,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# ✅ WhiteNoise storage for compressed static files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'school_crm.urls'
 
@@ -81,7 +93,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
+# ✅ Static files config
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ✅ ab error solve hoga
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
