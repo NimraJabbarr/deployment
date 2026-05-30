@@ -45,8 +45,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# ✅ WhiteNoise storage for compressed static files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# ✅ WhiteNoise storage for compressed static files (manifest-free to avoid missing hashed assets on deploy)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 
 ROOT_URLCONF = 'school_crm.urls'
 
