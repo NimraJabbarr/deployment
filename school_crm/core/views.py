@@ -11,3 +11,14 @@ def home(request):
     
     # 'home.html' template render karte hain aur usme students aur teachers ka data bhejte hain
     return render(request, 'home.html', {'students': students, 'teachers': teachers})
+from rest_framework import viewsets
+from .models import Student, Teacher
+from .serializers import StudentSerializer, TeacherSerializer
+
+class StudentViewSet(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+class TeacherViewSet(viewsets.ModelViewSet):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherSerializer

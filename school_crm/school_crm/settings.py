@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'rest_framework',   # ✅ DRF add karo for APIs
 ]
 
 MIDDLEWARE = [
