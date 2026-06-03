@@ -7,7 +7,7 @@
   },
   "functions": {
     "school_crm/school_crm/wsgi.py": {
-      "runtime": "python3.11"
+      "runtime": "python-3.11"
     }
   },
   "routes": [
