@@ -1,9 +1,18 @@
 {
-  "builds": [
-    { "src": "school_crm/wsgi.py", "use": "@vercel/python" }
-  ],
+  "buildCommand": "pip install -r requirements.txt && cd school_crm && python manage.py migrate && python manage.py collectstatic --noinput",
+  "outputDirectory": "school_crm/staticfiles",
+  "env": {
+    "PYTHONUNBUFFERED": "1"
+  },
+  "functions": {
+    "school_crm/school_crm/wsgi.py": {
+      "runtime": "python3.11"
+    }
+  },
   "routes": [
-    { "src": "/(.*)", "dest": "school_crm/wsgi.py" }
-  ],
-  "installCommand": "pip install -r requirements.txt"
+    {
+      "src": "/(.*)",
+      "dest": "school_crm/school_crm/wsgi.py"
+    }
+  ]
 }
