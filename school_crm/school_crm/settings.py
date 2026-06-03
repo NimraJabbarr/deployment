@@ -124,3 +124,7 @@ STORAGES = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ✅ Skip database validation during build (Vercel deployment)
+if os.environ.get('VERCEL'):
+    DATABASES['default']['DISABLE_SERVER_SIDE_CURSORS'] = True
