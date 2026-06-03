@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pip install -r requirements.txt && python school_crm/manage.py collectstatic --noinput --ignore=admin",
+  "buildCommand": "cd school_crm && pip install -r ../requirements.txt && python manage.py collectstatic --noinput --ignore=admin",
   "outputDirectory": "school_crm/staticfiles",
   "env": {
     "PYTHONUNBUFFERED": "1",
