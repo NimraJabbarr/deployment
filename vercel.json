@@ -5,11 +5,6 @@
     "PYTHONUNBUFFERED": "1",
     "DJANGO_SETTINGS_MODULE": "school_crm.settings"
   },
-  "functions": {
-    "school_crm/school_crm/wsgi.py": {
-      "runtime": "python-3.11"
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",
