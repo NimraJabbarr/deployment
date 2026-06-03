@@ -1,0 +1,15 @@
+.git
+.gitignore
+.env.local
+.env.*.local
+.DS_Store
+*.pyc
+__pycache__
+*.egg-info
+.venv
+venv
+.pytest_cache
+.coverage
+*.sqlite3
+node_modules
+.next
