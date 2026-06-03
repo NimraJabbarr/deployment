@@ -4,5 +4,6 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "school_crm/wsgi.py" }
-  ]
+  ],
+  "installCommand": "pip install -r requirements.txt"
 }
