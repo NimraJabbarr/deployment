@@ -1,13 +1,18 @@
 {
-  "buildCommand": "pip install -r requirements.txt && cd school_crm && python manage.py migrate && python manage.py collectstatic --noinput",
+  "buildCommand": "pip install -r requirements.txt && python school_crm/manage.py migrate && python school_crm/manage.py collectstatic --noinput",
   "outputDirectory": "school_crm/staticfiles",
   "env": {
     "PYTHONUNBUFFERED": "1"
   },
+  "functions": {
+    "school_crm/school_crm/wsgi.py": {
+      "runtime": "python3.11"
+    }
+  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "wsgi.py"
+      "dest": "school_crm/school_crm/wsgi.py"
     }
   ]
 }
