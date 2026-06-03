@@ -6,12 +6,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-=8u!*0^cmpt5z+25)ge50c55%h(-h=*-2_sg$_eg7av%!=w+vu'
 
-DEBUG = False   # ✅ Deployment ke liye False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'web-production-e2158.up.railway.app',
     '127.0.0.1',
-    'localhost'
+    'localhost',
+    'testserver',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -24,7 +25,6 @@ SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 
 INSTALLED_APPS = [
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
