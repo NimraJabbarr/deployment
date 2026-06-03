@@ -108,7 +108,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# ✅ Static files config for Vercel
+# ✅ Static files config for Vercel (FIXED PATHS)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = []
@@ -116,6 +116,9 @@ STATICFILES_DIRS = []
 # ✅ Disable manifest static files storage to prevent missing files on deploy
 STORAGES = {
     "default": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+    "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
