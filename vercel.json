@@ -1,14 +1,20 @@
 {
   "buildCommand": "cd school_crm && pip install -r ../requirements.txt && python manage.py collectstatic --noinput --ignore=admin",
   "outputDirectory": "school_crm/staticfiles",
-  "env": {
-    "PYTHONUNBUFFERED": "1",
-    "DJANGO_SETTINGS_MODULE": "school_crm.settings"
-  },
+  "builds": [
+    {
+      "src": "school_crm/school_crm/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
       "dest": "school_crm/school_crm/wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHONUNBUFFERED": "1",
+    "DJANGO_SETTINGS_MODULE": "school_crm.settings"
+  }
 }
