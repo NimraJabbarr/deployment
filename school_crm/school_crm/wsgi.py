@@ -11,7 +11,8 @@ import os
 import django
 from django.core.management import call_command
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'school_crm.settings')
+# ✅ Fixed path: include 'deployment.'
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'deployment.school_crm.settings')
 
 django.setup()
 
