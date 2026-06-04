@@ -6,7 +6,8 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'school_crm.settings')
+    # ✅ Updated path: include 'deployment.' because manage.py is inside deployment/
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'deployment.school_crm.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
