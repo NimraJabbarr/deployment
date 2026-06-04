@@ -1,14 +1,14 @@
 {
-  "buildCommand": "cd school_crm && pip install -r ../requirements.txt && python manage.py collectstatic --noinput --ignore=admin",
-  "outputDirectory": "school_crm/staticfiles",
+  "buildCommand": "cd deployment && pip install -r requirements.txt && python manage.py collectstatic --noinput --ignore=admin",
+  "outputDirectory": "deployment/school_crm/staticfiles",
   "env": {
     "PYTHONUNBUFFERED": "1",
-    "DJANGO_SETTINGS_MODULE": "school_crm.settings"
+    "DJANGO_SETTINGS_MODULE": "deployment.school_crm.settings"
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "school_crm/school_crm/wsgi.py"
+      "dest": "deployment.school_crm.wsgi"
     }
   ]
 }
